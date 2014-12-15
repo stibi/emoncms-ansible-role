@@ -1,0 +1,42 @@
+---
+emoncms_ansible_role:
+  emoncms_packages:
+    - autoconf
+    - apache
+    - mariadb
+    - curl
+    - git
+    - redis
+    - python2-pyserial
+    - python2-configobj
+    - sysstat
+    - minicom
+    - php
+    - php-apache
+    - php-pear
+    - php-mcrypt
+    - php-pear
+    - make
+
+  emoncms_services:
+    - httpd
+    - mysqld
+    - redis
+
+  # TODO tohle se meni podle systemu, http v archu, www-data na debianu
+  http_group: http
+  emoncms_user: emoncms
+  emoncms_user_groups:
+    - users
+    - http
+
+  pecl_redis_php_module_path: /usr/lib/php/modules/redis.so
+  emoncms_installation_path: /srv/http/emoncms
+  emoncms_data_path: /opt/emoncms_data
+
+  mysql_server_host: localhost
+  mysql_server_user: root
+  mysql_server_password: TODOchangeme
+  emoncms_mysql_db_name: emoncms
+  emoncms_mysql_db_user_name: emoncms
+  emoncms_mysql_db_user_password: TODOdalsiheslozmenit
