@@ -1,4 +1,5 @@
 ---
+# mysql-python balik je tu kvuli Ansible mysql modulu, takhle se jmenuje v Archu, jinde to bude jinak
 emoncms_ansible_role:
   emoncms_packages:
     - autoconf
@@ -17,6 +18,7 @@ emoncms_ansible_role:
     - php-mcrypt
     - php-pear
     - make
+    - mysql-python
 
   emoncms_services:
     - httpd
@@ -36,7 +38,10 @@ emoncms_ansible_role:
 
   mysql_server_host: localhost
   mysql_server_user: root
-  mysql_server_password: TODOchangeme
+  # TODO lepsi heslo
+  mysql_server_password: foobar
   emoncms_mysql_db_name: emoncms
   emoncms_mysql_db_user_name: emoncms
-  emoncms_mysql_db_user_password: TODOdalsiheslozmenit
+  emoncms_mysql_db_user_password: emoncmspasswd
+
+  feedwriter_logfile: /var/log/feedwriter.log
